@@ -1,0 +1,474 @@
+:root {
+    /*Colores para la Aplicación*/
+    --blue-color: #0c1633;
+    --ligth-blue-color: #0791e6;
+    --main-color: #efd828;
+    --red-color: #ff4e4e;
+    --green-color: #98ca3f;
+    --orange-color: #f97308;
+    --input-white-color: #f4f6ff;
+    --button-hover: #6cabe4;
+    --button-hover-2: #05446b;
+    /* Espaciado */
+    --space: 12px;
+    /*Tipografía*/
+    --font-family: 'Lato', sans-serif;
+    /* Tamaño de la letra*/
+    --low: 14px;
+    --normal: 16px;
+    --large: 24px;
+    /*Box shadow*/
+    --box: 3px 2px 2px 3px #e6e5e9;
+}
+
+/*------Icons------*/
+.icon-search:before {
+    content: "\e903";
+    color:  var(--ligth-blue-color);
+    font-size: 22px;
+  }
+
+  .icon-list:before {
+    content: "\e904";
+    color:  var(--blue-color);
+    font-size: 30px;
+  }
+
+  .icon-plus:before {
+    content: "\e900";
+    color:  var(--blue-color);
+    font-size: 20px;
+  }
+
+  .icon-pencil:before {
+    content: "\e905";
+    color:  var(--blue-color);
+    font-size: 20px;
+  }
+
+  .icon-loop:before {
+    content: "\e901";
+    color:  var(--blue-color);
+    font-size: 20px;
+  }
+
+  .icon-bin:before {
+    content: "\e902";
+    color:  var(--blue-color);
+    font-size: 20px;
+  }
+
+/*------CSS Index------*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+}
+
+html {
+    min-height: 100%;
+    position: relative;
+  }
+
+header > section.header-section {
+ background-color: var(--ligth-blue-color);
+ width: 100%;
+ height: 60px;
+ grid-template-rows: repeat(2, 1fr);
+}
+
+header > nav.header-nav {
+    background-color: var(--blue-color);
+    color: white;
+    font-size: var(--large);
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+header > nav > div.header-nav_title {
+    margin-left: 25px;
+}
+
+header > nav > div.header-nav_buttons form{
+    display: flex;
+}
+
+header > nav > div > form >div.header-nav_title_input_Search {
+    padding-left: 40px;
+    position: relative;
+}
+
+header > nav > div > form > div.header-nav_title_input_Search > input.header-nav_input {
+    outline: none;
+    margin: 5px;
+    height: 40px;
+    padding: 0px 15px 0px 40px;
+    border-radius: 20px;
+    background-color: var(--input-white-color);
+    font-size: 16px;
+    color: var(--blue-color);
+}
+
+header > nav > div > form > div.header-nav_title_input_Search > i.icon-search {
+    position: absolute;
+    left: 60px;
+    top: 12px;
+}
+
+header > nav > div > form > button.header-nav_button {
+    background-color: var(--ligth-blue-color);
+    color: white;
+    font-size: 18px;
+    margin: 5px;
+    padding: 1px 15px;
+    border: 0;
+    line-height: 1.5;
+    border-radius: 15px;
+}
+
+header > nav > div > form > button.header-nav_button:hover {
+    background-color: var(--button-hover-2);
+    transform: scale(1.1);
+}
+
+header > nav > div.header-nav_buttons button {
+    background-color: var(--ligth-blue-color);
+    color: white;
+    font-size: 18px;
+    margin: 5px;
+    padding: 1px 15px;
+    border: 0;
+    line-height: 1.5;
+    border-radius: 15px;
+    margin-left: 320px;
+}
+
+
+header > nav > div.header-nav_buttons button:hover {
+    background-color: var(--button-hover-2);
+    transform: scale(1.1);
+}
+
+header > nav > div.header-nav_about {
+    margin-right: 25px;
+}
+
+header > nav > div.header-nav_about a {
+    
+    text-decoration: none;
+    color: white;
+}
+/*----------Main---------*/
+main {
+    margin: 40px 350px 40px;
+    padding: 10px 20px;
+    /* border: 1px solid red; */
+    background-color: #cae5f6;
+    border-radius: 15px;
+    box-shadow: var(--box);
+}
+
+main > div.main-div_title {
+    color: var(--blue-color);
+    margin: 5px;
+    margin-left: 25px;
+    position: relative;
+}
+
+main > div.main-div_title h1{
+    padding-left: 40px;
+}
+
+main > div.main-div_title span.icon-list {
+    position: absolute;
+    top: 5px
+}
+
+main div.main-div_inputs form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 30px 25px 25px;
+    justify-items: center;
+    /* border: 1px solid red; */
+}
+
+main div.main-div_inputs form input[type=text] {
+    outline: none;
+    margin: 5px;
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: var(--input-white-color);
+    font-size: 16px;
+    color: var(--blue-color);
+}
+
+main div.main-div_inputs form select {
+    display: grid;
+    justify-self: end;
+    outline: none;
+    margin: 5px;
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: var(--input-white-color);
+    font-size: 16px;
+    color: var(--blue-color);
+}
+
+main div.main-div_inputs form div.main-div_inputs_plus_button {
+    position: relative;
+}
+
+main div.main-div_inputs form div.main-div_inputs_plus_button span.icon-plus {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+}
+
+main div.main-div_inputs form div.main-div_inputs_plus_button span.icon-pencil {
+    position: absolute;
+    top: 48px;
+    left: 12px;
+}
+
+main div.main-div_inputs form input[type=submit] {
+    /* display: grid;
+    justify-self: start; */
+    background-color: var(--ligth-blue-color);
+    color: white;
+    font-size: 18px;
+    margin: 5px;
+    padding: 0px 15px 2px 40px;
+    border: 0;
+    line-height: 1.5;
+    border-radius: 10px;
+}
+
+main div.main-div_inputs form input[type=submit]:hover {
+    background-color: var(--button-hover);
+    /* transform: scale(1.1); */
+}
+
+main div.main-div_inputs form input[type="button"] {
+    background-color: var(--ligth-blue-color);
+    color: white;
+    font-size: 18px;
+    margin: 5px;
+    padding: 0px 15px 2px 30px;
+    border: 0;
+    line-height: 1.5;
+    border-radius: 10px;
+}
+
+main div.main-div_inputs form input[type="button"]:hover {
+    background-color: var(--button-hover);
+    /* transform: scale(1.1); */
+}
+
+main div.main-div_list {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr); 
+    margin: 35px 25px 25px;
+    padding: 10px;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--button-hover);
+    border-radius: 20px;
+    color: var(--blue-color);
+    font-size: var(--large);
+}
+
+main div.main-div_list div.main-div_list_check {
+    justify-self: start;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+main div.main-div_list div.main-div_list_check input[type=checkbox].checkbox {
+    zoom: 1.5;
+}
+
+main div.main-div_list label[for=cbox1] {
+    margin-left: 5px;
+    font-size: 25px;
+    color: white;
+    font-weight: 400;
+}
+
+main div.main-div_list div.main-div_list_items {
+    display: grid;
+    grid-template-columns: 250px 1fr 1fr
+}
+
+main div.main-div_list div.main-div_list_tipo {
+    margin-top: 5px;
+}
+
+main div.main-div_list div.main-div_list_tipo label{
+    background-color: var(--green-color);
+    border-radius: 25px;
+    padding: 3px 15px;
+    font-size: 20px;
+    margin-left: 3px;
+}
+
+/* main div.main-div_list div.main-div_list_buttons {
+    display: flex;
+} */
+
+main div.main-div_list div.main-div_list_items div.main-div_list_buttons_update {
+    position: relative;
+    
+}
+
+main div.main-div_list div.main-div_list_items div.main-div_list_buttons_update span.icon-loop {
+    position: absolute;
+    top: 6px;
+    left: 15px;
+}
+
+main div.main-div_list div.main-div_list_items div.main-div_list_buttons_delete {
+    position: relative;
+}
+
+main div.main-div_list div.main-div_list_items div.main-div_list_buttons_delete span.icon-bin {
+    position: absolute;
+    top: 6px;
+    left: 15px;
+}
+
+main div.main-div_list div.main-div_list_items button {
+    /* background-color: var(--ligth-blue-color); */
+    color: white;
+    font-size: 18px;
+    margin: 5px;
+    padding: 0px 15px 2px 40px;
+    border: 0;
+    line-height: 1.5;
+    border-radius: 10px;
+}
+
+main div.main-div_list div.main-div_list_items div.main-div_list_buttons_update button {
+    background-color: var(--orange-color);
+}
+
+main div.main-div_list div.main-div_list_items div.main-div_list_buttons_update button:hover {
+    background-color: #ffc904;
+}
+
+
+main div.main-div_list div.main-div_list_items div.main-div_list_buttons_delete button {
+    background-color: var(--red-color)
+}
+
+main div.main-div_list div.main-div_list_items div.main-div_list_buttons_delete button:hover {
+    background-color: #f97272;
+}
+
+/*----Cuando no tiene Tipo----*/
+
+main div.main-div_list2 {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr); 
+    margin: 35px 25px 25px;
+    padding: 10px;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--button-hover);
+    border-radius: 20px;
+    color: var(--blue-color);
+    font-size: var(--large);
+}
+
+main div.main-div_list2 div.main-div_list_check {
+    justify-self: start;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+main div.main-div_list2 div.main-div_list_check input[type=checkbox].checkbox {
+    zoom: 1.5;
+}
+
+main div.main-div_list2 label[for=cbox1] {
+    margin-left: 5px;
+    font-size: 25px;
+    color: white;
+    font-weight: 400;
+}
+
+main div.main-div_list2 div.main-div_list_items {
+    display: grid;
+    grid-template-columns: 250px 1fr 1fr
+}
+
+main div.main-div_list2 div.main-div_list_items div.main-div_list_buttons_update {
+    position: relative;
+    
+}
+
+main div.main-div_list2 div.main-div_list_items div.main-div_list_buttons_update span.icon-loop {
+    position: absolute;
+    top: 6px;
+    left: 15px;
+}
+
+main div.main-div_list2 div.main-div_list_items div.main-div_list_buttons_delete {
+    position: relative;
+}
+
+main div.main-div_list2 div.main-div_list_items div.main-div_list_buttons_delete span.icon-bin {
+    position: absolute;
+    top: 6px;
+    left: 15px;
+}
+
+main div.main-div_list2 div.main-div_list_items button {
+    /* background-color: var(--ligth-blue-color); */
+    color: white;
+    font-size: 18px;
+    margin: 5px;
+    padding: 0px 15px 2px 40px;
+    border: 0;
+    line-height: 1.5;
+    border-radius: 10px;
+}
+
+main div.main-div_list2 div.main-div_list_items div.main-div_list_buttons_update button {
+    background-color: var(--orange-color);
+}
+
+main div.main-div_list2 div.main-div_list_items div.main-div_list_buttons_update button:hover {
+    background-color: #ffc904;
+}
+
+
+main div.main-div_list2 div.main-div_list_items div.main-div_list_buttons_delete button {
+    background-color: var(--red-color)
+}
+
+main div.main-div_list2 div.main-div_list_items div.main-div_list_buttons_delete button:hover {
+    background-color: #f97272;
+}
+
+/*----------Footer---------*/
+
+footer {
+    position: absolute;
+    z-index: -1;
+    bottom: -100px;
+    width: 100%;
+    height: 80px;
+    border-top: 35px solid var(--ligth-blue-color);
+    text-align: center;
+    font-size: var(--large);
+    color: white;
+    background-color: var(--blue-color);
+}
+
+footer p {
+    margin-top: 20px;
+}

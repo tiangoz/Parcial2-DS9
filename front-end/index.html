@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://i.icomoon.io/public/temp/45a638e647/ToDoTasks/style.css">
+    <link rel="stylesheet" href="https://i.icomoon.io/public/temp/9d4e89313b/UntitledProject/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Tasks - To Do</title>
+</head>
+<body>
+    <header>
+        <section class="header-section"></section>
+        <nav class="header-nav">
+            <div class="header-nav_title">To Do</div>
+            <div class="header-nav_buttons">
+                <form id="search_form">
+                    <div class="header-nav_title_input_Search">
+                        <i class="icon-search"></i>
+                        <input type="search" id="seekTask" placeholder="Buscar tareas..." class="header-nav_input">
+                    </div>
+                    <button type="submit" class="header-nav_button">Buscar</button>
+                    <button id="clean" class="header-nav_button">Limpiar</button>
+                </form>
+                <button id="show" class="header-nav_button">Mostrar Tareas</button>
+            </div>
+            <div class="header-nav_about"><a href="#">Acerca de mi</a></div>
+        </nav>
+    </header>
+    <main>
+        <div class="main-div_title">
+            <span class="icon-list"></span>
+            <h1>Tareas agregadas</h1>
+        </div>
+        <div class="main-div_inputs">
+            <form id="tasks_form">
+                <input type="text" id="task" placeholder="Agregue una tarea..." required>
+                <select id="task_type">
+                    <option value="novalido">-- Seleccione un tipo --</option>
+                    <option value="Universidad">Universidad</option>
+                    <option value="Trabajo">Trabajo</option>
+                    <option value="Personal">Personal</option>
+                </select>
+                <div class="main-div_inputs_plus_button">
+                    <span class="icon-plus"></span>
+                    <input type="submit" value="Agregar">
+                    <span class="icon-pencil"></span>
+                    <input type="button" value="Modificar" id="update_data">
+                </div>
+            </form>
+        </div>
+        <div id="tasks_type_list"></div>
+        <!-- <div id="tasks_without_type_list" class="main-div_list2"></div> -->
+        <!-- <div class="main-div_list">
+                <div class="main-div_list_check">
+                    <input type="checkbox" id="cbox2" value="second_checkbox" class="checkbox">
+                    <label for="cbox1">Este es un texto de prueba para a largar el tamaño de la tarea.Este es un texto de prueba para a largar el tamaño de la tarea.</label>
+                </div>
+                <div class="main-div_list_items">
+                    <div class="main-div_list_tipo">
+                        <label for="tipo">Universidad</label>
+                    </div>
+                    <div class="main-div_list_buttons_update">
+                        <span class="icon-loop"></span>
+                        <button class="actualizar">Actualizar</button>
+                    </div>
+                    <div class="main-div_list_buttons_delete">
+                        <span class="icon-bin"></span>
+                        <button class="borrar">Borrar</button>
+                    </div>
+                </div>
+        </div> -->
+        <!-- <div class="main-div_list2">
+            <div class="main-div_list_check">
+                <input type="checkbox" id="cbox2" value="second_checkbox" class="checkbox">
+                <label for="cbox1">Este es un texto de prueba para a largar el tamaño de la tarea.Este es un texto de prueba para a largar el tamaño de la tarea.</label>
+            </div>
+            <div class="main-div_list_items">
+                <div class="main-div_list_tipo">
+                    <label for="tipo">Universidad</label>
+                </div>
+                <div class="main-div_list_buttons_update">
+                    <span class="icon-loop"></span>
+                    <button class="actualizar">Actualizar</button>
+                </div>
+                <div class="main-div_list_buttons_delete">
+                    <span class="icon-bin"></span>
+                    <button class="borrar">Borrar</button>
+                </div>
+            </div>
+        </div> -->
+    
+    </main>
+    <footer>
+            <p> <strong>Diseñado por:</strong> Christian Gómez🤘</p>
+    </footer>
+    <script src="./scripts/app.js"></script>
+</body>
+</html>
