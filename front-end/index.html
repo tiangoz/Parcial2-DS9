@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://i.icomoon.io/public/temp/45a638e647/ToDoTasks/style.css">
-    <link rel="stylesheet" href="https://i.icomoon.io/public/temp/9d4e89313b/UntitledProject/style.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./assets/fonts/style.css">
     <title>Tasks - To Do</title>
 </head>
 <body>
     <header>
         <section class="header-section"></section>
         <nav class="header-nav">
-            <div class="header-nav_title">To Do</div>
+            <div class="header-nav_title">To Do List</div>
             <div class="header-nav_buttons">
                 <form id="search_form">
                     <div class="header-nav_title_input_Search">
@@ -46,7 +45,7 @@
                 </select>
                 <div class="main-div_inputs_plus_button">
                     <span class="icon-plus"></span>
-                    <input type="submit" value="Agregar">
+                    <input type="submit" value="Agregar" id="idbotton" class="buttons">
                     <span class="icon-pencil"></span>
                     <input type="button" value="Modificar" id="update_data">
                 </div>
@@ -55,40 +54,40 @@
         <div id="tasks_type_list"></div>
         <!-- <div id="tasks_without_type_list" class="main-div_list2"></div> -->
         <!-- <div class="main-div_list">
-                <div class="main-div_list_check">
-                    <input type="checkbox" id="cbox2" value="second_checkbox" class="checkbox">
-                    <label for="cbox1">Este es un texto de prueba para a largar el tamaño de la tarea.Este es un texto de prueba para a largar el tamaño de la tarea.</label>
-                </div>
-                <div class="main-div_list_items">
-                    <div class="main-div_list_tipo">
-                        <label for="tipo">Universidad</label>
-                    </div>
-                    <div class="main-div_list_buttons_update">
-                        <span class="icon-loop"></span>
-                        <button class="actualizar">Actualizar</button>
-                    </div>
-                    <div class="main-div_list_buttons_delete">
-                        <span class="icon-bin"></span>
-                        <button class="borrar">Borrar</button>
-                    </div>
-                </div>
-        </div> -->
-        <!-- <div class="main-div_list2">
-            <div class="main-div_list_check">
-                <input type="checkbox" id="cbox2" value="second_checkbox" class="checkbox">
-                <label for="cbox1">Este es un texto de prueba para a largar el tamaño de la tarea.Este es un texto de prueba para a largar el tamaño de la tarea.</label>
+            <div class="main-div_list_check" id="${i}">
+                <input type="checkbox" id="cbox${i}" class="checkbox">
+                <label for="cbox1">${arrayTareas[i].tarea}</label>
             </div>
             <div class="main-div_list_items">
                 <div class="main-div_list_tipo">
-                    <label for="tipo">Universidad</label>
+                    <label for="tipo">${arrayTareas[i].tipo}</label>
                 </div>
                 <div class="main-div_list_buttons_update">
                     <span class="icon-loop"></span>
-                    <button class="actualizar">Actualizar</button>
+                    <button class="actualizar" id="actualizar${[i]}">Actualizar</button>
                 </div>
                 <div class="main-div_list_buttons_delete">
                     <span class="icon-bin"></span>
-                    <button class="borrar">Borrar</button>
+                    <button class="borrar" id="borrar${[i]}">Borrar</button>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="main-div_list2">
+            <div class="main-div_list_check" id="${i}">
+                <input type="checkbox" id="cbox${i}" class="checkbox">
+                <label for="cbox1">${arrayTareas[i].tarea}</label>
+            </div>
+            <div class="main-div_list_items">
+                <div class="main-div_list_tipo">
+                <label for="tipo" style="visibility: hidden;">${arrayTareas[i].tipo}</label>
+                </div>
+                <div class="main-div_list_buttons_update">
+                    <span class="icon-loop"></span>
+                    <button class="actualizar" id="actualizar${[i]}">Actualizar</button>
+                </div>
+                <div class="main-div_list_buttons_delete">
+                    <span class="icon-bin"></span>
+                    <button class="borrar" id="borrar${[i]}">Borrar</button>
                 </div>
             </div>
         </div> -->

@@ -9,8 +9,14 @@ let tarea = document.getElementById('task')
 let tareaTipo = document.getElementById("task_type")
 let limpiar = document.getElementById("clean")
 let actualizarDato = document.getElementById("update_data")
+let button = document.querySelector(".buttons");
 let checkboxTarea = ""
 let indice = ""
+
+function deshabilitarBotonModificar() {
+    document.getElementById("update_data").disabled=true
+    document.getElementById("update_data").style.backgroundColor='#808080'
+}
 
 //Array que almacenará los datos tipo Objetos
 let arrayTareas=[];
@@ -22,6 +28,7 @@ let item={
 }
 
 // Cuando se renderice el DOM se mostraran las tareas que haya.
+deshabilitarBotonModificar()
 document.addEventListener('DOMContentLoaded', mostrar)
 mostrarTareas.addEventListener('click', mostrar)
 
@@ -60,8 +67,8 @@ function mostrar(){
             const newDiv =`
             <div class="main-div_list2">
                 <div class="main-div_list_check" id="${i}">
-                    <input type="checkbox" id="cbox${i}" class="checkbox">
-                    <label for="cbox1">${arrayTareas[i].tarea}</label>
+                    <input type="checkbox" id="cbox" class="checkbox">
+                    <label for="cbox${i}">${arrayTareas[i].tarea}</label>
                 </div>
                 <div class="main-div_list_items">
                     <div class="main-div_list_tipo">
@@ -69,11 +76,11 @@ function mostrar(){
                     </div>
                     <div class="main-div_list_buttons_update">
                         <span class="icon-loop"></span>
-                        <button class="actualizar">Actualizar</button>
+                        <button class="actualizar" id="actualizar${[i]}">Actualizar</button>
                     </div>
                     <div class="main-div_list_buttons_delete">
                         <span class="icon-bin"></span>
-                        <button class="borrar">Borrar</button>
+                        <button class="borrar" id="borrar${[i]}">Borrar</button>
                     </div>
                 </div>
             </div>
@@ -83,8 +90,8 @@ function mostrar(){
             const newDiv =`
             <div class="main-div_list">
                 <div class="main-div_list_check" id="${i}">
-                    <input type="checkbox" id="cbox${i}" class="checkbox">
-                    <label for="cbox1">${arrayTareas[i].tarea}</label>
+                    <input type="checkbox" id="chbox" class="checkbox">
+                    <label for="cbox${i}">${arrayTareas[i].tarea}</label>
                 </div>
                 <div class="main-div_list_items">
                     <div class="main-div_list_tipo">
@@ -92,20 +99,17 @@ function mostrar(){
                     </div>
                     <div class="main-div_list_buttons_update">
                         <span class="icon-loop"></span>
-                        <button class="actualizar">Actualizar</button>
+                        <button class="actualizar" id="actualizar${[i]}">Actualizar</button>
                     </div>
                     <div class="main-div_list_buttons_delete">
                         <span class="icon-bin"></span>
-                        <button class="borrar">Borrar</button>
+                        <button class="borrar" id="borrar${[i]}">Borrar</button>
                     </div>
                 </div>
             </div>
             `
             listadoTareas.innerHTML += newDiv
         }
-        checkboxTarea = document.getElementById("cbox"+i).checked
-        console.log(checkboxTarea)
-        // checkboxTarea[i].addEventListener('change', detectar)
     }
 }
 
@@ -136,11 +140,11 @@ function buscarListado(valorBuscarTarea){
                         </div>
                         <div class="main-div_list_buttons_update">
                             <span class="icon-loop"></span>
-                            <button class="actualizar">Actualizar</button>
+                            <button class="actualizar" id="actualizar${[i]}">Actualizar</button>
                         </div>
                         <div class="main-div_list_buttons_delete">
                             <span class="icon-bin"></span>
-                            <button class="borrar">Borrar</button>
+                            <button class="borrar" id="borrar${[i]}">Borrar</button>
                         </div>
                     </div>
                 </div>
@@ -159,11 +163,11 @@ function buscarListado(valorBuscarTarea){
                         </div>
                         <div class="main-div_list_buttons_update">
                             <span class="icon-loop"></span>
-                            <button class="actualizar">Actualizar</button>
+                            <button class="actualizar" id="actualizar${[i]}">Actualizar</button>
                         </div>
                         <div class="main-div_list_buttons_delete">
                             <span class="icon-bin"></span>
-                            <button class="borrar">Borrar</button>
+                            <button class="borrar" id="borrar${[i]}">Borrar</button>
                         </div>
                     </div>
                 </div>
@@ -207,7 +211,16 @@ function borrar(valorTarea, valorTipo){
     })
 }
 
+function deshabilitarBoton(){
+    button.disabled = true;
+    document.getElementById("idbotton").style.backgroundColor='grey'
+    document.getElementById("update_data").disabled=false
+    document.getElementById("update_data").style.backgroundColor='#0791e6'
+    
+}
+
 function actualizar(valorTarea, valorTipo){
+    deshabilitarBoton()
     for(var i=0;i<arrayTareas.length;i++){
         if(arrayTareas[i].tarea==valorTarea && arrayTareas[i].tipo == valorTipo) {
             indice = i
@@ -221,9 +234,12 @@ function actualizar(valorTarea, valorTipo){
             } else {
                 tareaTipo.selectedIndex=3
             }
+            document.getElementById("borrar"+i).style.backgroundColor='grey'
+            document.getElementById("borrar"+i).disabled=true
+            document.getElementById("actualizar"+i).style.backgroundColor='grey'
+            document.getElementById("actualizar"+i).disabled=true
         }
     }
-    console.log(indice)
 }
 
 actualizarDato.addEventListener('click', actualizarRegistro)
@@ -238,14 +254,26 @@ function actualizarRegistro() {
     tareaTipo.selectedIndex=0
     indice = ""
     guardar()
+    deshabilitarBotonModificar()
+    habilitarBotones()
+}
+
+function habilitarBotones(){
+    button.disabled = false;
+    document.getElementById("idbotton").style.backgroundColor='#0791e6'
+    document.getElementById("borrar"+i).style.backgroundColor='#ff4e4e'
+    document.getElementById("borrar"+i).disabled=false
+    document.getElementById("actualizar"+i).style.backgroundColor='#f97308'
+    document.getElementById("actualizar"+i).disabled=false
 }
 
 //Función que detecta el check
-// let checkboxTarea = document.getElementById("cbox0")
-// checkboxTarea.addEventListener('change', detectar)
-
-function detectar(){
-    if(checkboxTarea) {
-       alert('checkbox esta seleccionado'); 
-    }
+var checkbox = document.getElementById('chbox').checked
+console.log(checkbox)
+checkbox.addEventListener("change", validaCheckbox, false);
+function validaCheckbox() {
+  var checked = checkbox.checked;
+  if(checked){
+    alert('checkbox1 esta seleccionado');
+  }
 }
