@@ -291,7 +291,7 @@ main div.main-div_list div.main-div_list_check input[type=checkbox].checkbox {
     zoom: 1.5;
 }
 
-main div.main-div_list label[for=cbox1] {
+main div.main-div_list div.main-div_list_check label{
     margin-left: 5px;
     font-size: 25px;
     color: white;
@@ -324,7 +324,7 @@ main div.main-div_list div.main-div_list_items div.main-div_list_buttons_update 
     
 }
 
-main div.main-div_list div.main-div_list_items div.main-div_list_buttons_update span.icon-loop {
+main div.main-div_list div.main-div_list_items div.main-div_list_buttons_update span.icon-loop2 {
     position: absolute;
     top: 6px;
     left: 15px;
@@ -393,7 +393,7 @@ main div.main-div_list2 div.main-div_list_check input[type=checkbox].checkbox {
     zoom: 1.5;
 }
 
-main div.main-div_list2 label[for=cbox1] {
+main div.main-div_list2 div.main-div_list_check label {
     margin-left: 5px;
     font-size: 25px;
     color: white;
@@ -410,7 +410,7 @@ main div.main-div_list2 div.main-div_list_items div.main-div_list_buttons_update
     
 }
 
-main div.main-div_list2 div.main-div_list_items div.main-div_list_buttons_update span.icon-loop {
+main div.main-div_list2 div.main-div_list_items div.main-div_list_buttons_update span.icon-loop2 {
     position: absolute;
     top: 6px;
     left: 15px;

@@ -66,16 +66,18 @@ function mostrar(){
         if(arrayTareas[i].tipo == "novalido") {
             const newDiv =`
             <div class="main-div_list2">
-                <div class="main-div_list_check" id="${i}">
-                    <input type="checkbox" id="cbox" class="checkbox">
-                    <label for="cbox${i}">${arrayTareas[i].tarea}</label>
+                <div class="main-div_list_check" id="ad${i}">
+                    <input type="checkbox" onClick="prueba(${i})" id="${i}" class="checkbox">
+                    <label for="cbox${i}" id="cbox${i}">${arrayTareas[i].tarea}</label>
+                    <input type="hidden" value="no" id="hd${i}">
+                    <input type="hidden" value="${arrayTareas[i].tarea}" id="text${i}">
                 </div>
                 <div class="main-div_list_items">
                     <div class="main-div_list_tipo">
                     <label for="tipo" style="visibility: hidden;">${arrayTareas[i].tipo}</label>
                     </div>
                     <div class="main-div_list_buttons_update">
-                        <span class="icon-loop"></span>
+                        <span class="icon-loop2"></span>
                         <button class="actualizar" id="actualizar${[i]}">Actualizar</button>
                     </div>
                     <div class="main-div_list_buttons_delete">
@@ -89,16 +91,18 @@ function mostrar(){
         } else {
             const newDiv =`
             <div class="main-div_list">
-                <div class="main-div_list_check" id="${i}">
-                    <input type="checkbox" id="chbox" class="checkbox">
-                    <label for="cbox${i}">${arrayTareas[i].tarea}</label>
+                <div class="main-div_list_check" id="ad${i}">
+                    <input type="checkbox" onClick="prueba(${i})" id="${i}" class="checkbox">
+                    <label for="cbox${i}" id="cbox${i}">${arrayTareas[i].tarea}</label>
+                    <input type="hidden" value="no" id="hd${i}">
+                    <input type="hidden" value="${arrayTareas[i].tarea}" id="text${i}">
                 </div>
                 <div class="main-div_list_items">
                     <div class="main-div_list_tipo">
                         <label for="tipo">${arrayTareas[i].tipo}</label>
                     </div>
                     <div class="main-div_list_buttons_update">
-                        <span class="icon-loop"></span>
+                        <span class="icon-loop2"></span>
                         <button class="actualizar" id="actualizar${[i]}">Actualizar</button>
                     </div>
                     <div class="main-div_list_buttons_delete">
@@ -130,16 +134,18 @@ function buscarListado(valorBuscarTarea){
             if(arrayTareas[i].tipo == "novalido") {
                 const newDiv =`
                 <div class="main-div_list2">
-                    <div class="main-div_list_check" id="${i}">
-                        <input type="checkbox" id="cbox${i}" class="checkbox">
-                        <label for="cbox1">${arrayTareas[i].tarea}</label>
+                    <div class="main-div_list_check" id="ad${i}">
+                        <input type="checkbox" onClick="prueba(${i})" id="${i}" class="checkbox">
+                        <label for="cbox${i}" id="cbox${i}">${arrayTareas[i].tarea}</label>
+                        <input type="hidden" value="no" id="hd${i}">
+                        <input type="hidden" value="${arrayTareas[i].tarea}" id="text${i}">
                     </div>
                     <div class="main-div_list_items">
                         <div class="main-div_list_tipo">
                         <label for="tipo" style="visibility: hidden;">${arrayTareas[i].tipo}</label>
                         </div>
                         <div class="main-div_list_buttons_update">
-                            <span class="icon-loop"></span>
+                            <span class="icon-loop2"></span>
                             <button class="actualizar" id="actualizar${[i]}">Actualizar</button>
                         </div>
                         <div class="main-div_list_buttons_delete">
@@ -153,16 +159,18 @@ function buscarListado(valorBuscarTarea){
             } else {
                 const newDiv =`
                 <div class="main-div_list">
-                    <div class="main-div_list_check" id="${i}">
-                        <input type="checkbox" id="cbox${i}" class="checkbox">
-                        <label for="cbox1">${arrayTareas[i].tarea}</label>
+                    <div class="main-div_list_check" id="ad${i}">
+                        <input type="checkbox" onClick="prueba(${i})" id="${i}" class="checkbox">
+                        <label for="cbox${i}" id="cbox${i}">${arrayTareas[i].tarea}</label>
+                        <input type="hidden" value="no" id="hd${i}">
+                        <input type="hidden" value="${arrayTareas[i].tarea}" id="text${i}">
                     </div>
                     <div class="main-div_list_items">
                         <div class="main-div_list_tipo">
                             <label for="tipo">${arrayTareas[i].tipo}</label>
                         </div>
                         <div class="main-div_list_buttons_update">
-                            <span class="icon-loop"></span>
+                            <span class="icon-loop2"></span>
                             <button class="actualizar" id="actualizar${[i]}">Actualizar</button>
                         </div>
                         <div class="main-div_list_buttons_delete">
@@ -267,13 +275,39 @@ function habilitarBotones(){
     document.getElementById("actualizar"+i).disabled=false
 }
 
-//Función que detecta el check
-var checkbox = document.getElementById('chbox').checked
-console.log(checkbox)
-checkbox.addEventListener("change", validaCheckbox, false);
-function validaCheckbox() {
-  var checked = checkbox.checked;
-  if(checked){
-    alert('checkbox1 esta seleccionado');
-  }
+function prueba(val){
+    var id = "hd"+val
+    var id2 = "text"+val
+    var check = document.getElementById(id).value
+    if(check == 'no'){
+        var texto = document.getElementById(id2).value;
+        html = `
+        <input type="checkbox" checked onClick="prueba(${val})" id="${val}" class="checkbox">
+        <label for="cbox${val}" id="cbox${val}"><strike>${texto}<strike></label>
+        <input type="hidden" value="si" id="hd${val}">
+        <input type="hidden" value="${texto}" id="text${val}">
+        `
+        
+        var iid = 'ad'+val;
+        document.getElementById(iid).innerHTML = html;
+        document.getElementById("borrar"+val).style.backgroundColor='grey'
+        document.getElementById("borrar"+val).disabled=true
+        document.getElementById("actualizar"+val).style.backgroundColor='grey'
+        document.getElementById("actualizar"+val).disabled=true
+    } else {
+        var texto = document.getElementById(id2).value;
+        html = `
+        <input type="checkbox" onClick="prueba(${val})" id="${val}" class="checkbox">
+        <label for="cbox${val}" id="cbox${val}">${texto}</label>
+        <input type="hidden" value="no" id="hd${val}">
+        <input type="hidden" value="${texto}" id="text${val}">
+        `
+        
+        var iid = 'ad'+val;
+        document.getElementById(iid).innerHTML = html;
+        document.getElementById("borrar"+val).style.backgroundColor='#ff4e4e'
+        document.getElementById("borrar"+val).disabled=false
+        document.getElementById("actualizar"+val).style.backgroundColor='#0791e6'
+        document.getElementById("actualizar"+val).disabled=false
+    }
 }

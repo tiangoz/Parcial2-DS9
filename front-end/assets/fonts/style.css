@@ -65,3 +65,8 @@
   color:  var(--blue-color);
   font-size: 20px;
 }
+.icon-loop:before {
+  content: "\e901";
+  color:  var(--blue-color);
+  font-size: 20px;
+}
